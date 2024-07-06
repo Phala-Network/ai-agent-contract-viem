@@ -205,12 +205,12 @@ If you are using secrets, make sure that your URL is set in the following syntax
 https://agents.phala.network/ipfs/<cid>?key=<key>
 ```
 
-Example:
-Derived ECDSA Key: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb
-Sign 'Hello MOON!': https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb&type=sign&data=Hello%20Moon!
-Verify Signature: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb&type=verify&data=Hello%20Moon!&signature=0x372f08f2efebcff0ac8f9ae0dcc6662bf5aeb9e54cf40e86043cc71bb18fd806688f6956b8a31774ef5249d9bea878905c616c117fc27d15b1a2340d10ba90df1c
-
 </details>
+
+#### Example:
+- Derived ECDSA Key: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb
+- Sign 'Hello MOON!': https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb&type=sign&data=Hello%20Moon%21
+- Verify Signature: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb&type=verify&data=Hello%20Moon!&signature=0x372f08f2efebcff0ac8f9ae0dcc6662bf5aeb9e54cf40e86043cc71bb18fd806688f6956b8a31774ef5249d9bea878905c616c117fc27d15b1a2340d10ba90df1c
 
 ### Access Queries
 To help create custom logic, we have an array variable named `queries` that can be accessed in the `Request` class. To access the `queries` array variable `type` value at index `0`, the syntax will look as follows:
