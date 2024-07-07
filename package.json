@@ -1,5 +1,5 @@
 {
-  "name": "phat-gpt-template",
+  "name": "ai-agent-tools-template",
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
@@ -12,7 +12,7 @@
     "publish-agent": "phat-fn build --experimentalAsync && tsx scripts/publish.ts"
   },
   "devDependencies": {
-    "@phala/fn": "^0.2.21",
+    "@phala/fn": "^0.2.22",
     "thirdweb": "^5.32.3",
     "dotenv": "^16.4.5",
     "tsx": "^4.7.1",
