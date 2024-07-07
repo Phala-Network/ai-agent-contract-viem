@@ -46,7 +46,7 @@ npm install
 ### Testing Locally
 Create `.env` file
 ```shell
-cp .env.local .env
+cp .env.example .env
 ```
 
 In `.env` file replace `SECRET_SALT` with your own secret salt
