@@ -10,11 +10,11 @@
     <a href="https://github.com/Phala-Network/ai-agent-contract-tools"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="QmQu9AmBL13tyGpxgg5ASt96WQ669p63rnJRWiAo9st8ns/0?key=c0c0105ba56276cd&chatQuery=When%20did%20humans%20land%20on%20the%20moon">View Demo</a>
+    <a href="https://wapo-testnet.phala.network/ipfs/QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae?key=b092532592cbd0cf&type=verify&data=signedByTEE&signature=0x27a9cd3e1aa3b238c8bdbc57d831f503b9af11ba2cc4875780c21ea8a14b471c098d11791709f6243001908bfe217644c6b3882a16903048e9e01e946b318c0d1b">View Demo</a>
     ·
     <a href="https://github.com/Phala-Network/ai-agent-contract-tools/issues">Report Bug</a>
     ·
-    <a href="https://discord.gg/DXGGJajW">Discord</a>
+    <a href="https://discord.gg/phala-network">Discord</a>
   </p>
 
   <h3>Architecure Overview</h3>
@@ -66,30 +66,11 @@ npm run test
 
 Expected Test Results
 ```shell
-> phat-gpt-template@0.0.1 test
-> tsx src/test.ts
-
-
-NOTE: Signing data must be tested in Sidevm Playground. Use this as the arg value to test
-- args: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{"data":["Hello MOON!"],"type":["sign"]},"secret":{"secretSalt":"SALTY"},"headers":{}}
-
-To test in the SideVM playground go to https://phat.phala.network/contracts/view/0xf0a398600f02ea9b47a86c59aed61387e450e2a99cb8b921cd1d46f734e45409
-
-Connect you polkadot.js account and select 'run_js' with the parameters:
-- engine: SidevmQuickJSWithPolyfill
-- js_code: Source code text of dist/index.ts
-- args: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{},"secret":{"secretSalt":"SALTY"},"headers":{}}
-Watch video here for to see the visual steps of testing in Sidevm playground: https://www.youtube.com/watch?v=fNqNeLfFFME
-
-Make sure to replace queries and secret with your values compatible with your AI Agent Contract.
-
-NOTE:
-Signing data must be tested in Sidevm Playground. Use this as the arg value to test
-- args: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{"data":["Hello MOON!"],"type":["sign"]},"secret":{"secretSalt":"SALTY"},"headers":{}}
-
-NOTE:
-Verifying data must be tested in Sidevm Playground. Use this as the arg value to test
-- args: {"method":"GET","path":"/ipfs/QmVHbLYhhYA5z6yKpQr4JWr3D54EhbSsh7e7BFAAyrkkMf","queries":{"data":["Hello MOON!"],"signature":["REPLACE_WITH_SIGNATURE"],"type":["verify"]},"secret":{"secretSalt":"SALTY"},"headers":{}}
+Currently, WapoJS does not have a playground to test against. 
+Please test by:
+- Execute: 'npm run publish-agent'
+- Set secrets: 'npm run set-secrets'
+- Go to the url produced by setting the secrets (e.g. https://wapo-testnet.phala.network/ipfs/QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae?key=b092532592cbd0cf)
 ```
 
 ### Publish Your AI Agent
@@ -102,7 +83,7 @@ npm run publish-agent
 Upon a successful upload, the command should show the URL to access your AI Agent.
 ```shell
 ✓ Compiled successfully.
-  69.43 KB  dist/index.js
+  67.83 KB  dist/index.js
 Running command: npx thirdweb upload dist/index.js
 This may require you to log into thirdweb and will take some time to publish to IPFS...
 
@@ -120,15 +101,15 @@ This may require you to log into thirdweb and will take some time to publish to 
 - Uploading file to IPFS. This may take a while depending on file sizes.
 
 ✔ Successfully uploaded file to IPFS.
-✔ Files stored at the following IPFS URI: ipfs://QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY
-✔ Open this link to view your upload: https://bafybeiahxlsblg3nwyrziavih7ziviherm7zph5atxxxvdyv3pnao7tzae.ipfs.cf-ipfs.com/
+✔ Files stored at the following IPFS URI: ipfs://QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae
+✔ Open this link to view your upload: https://b805a9b72767504353244e0422c2b5f9.ipfscdn.io/ipfs/bafybeiapzlkjemyza3up3x3bkgb7zvyh4mjfnqqz635rsnxu3zmj5x425m/
 
-AI Agent Contract deployed at: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY
+Agent Contract deployed at: https://wapo-testnet.phala.network/ipfs/QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae
 
-Make sure to add your secrets to ensure your AI-Agent works properly. Use syntax:
-
-
-curl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY", "data": {"secretSalt": "SECRET_SALT"}}'
+If your agent requires secrets, ensure to do the following:
+1) Edit the setSecrets.ts file to add your secrets
+2) Set the variable AGENT_CID=QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae in the .env file
+3) Run command: npm run set-secrets
 ```
 
 <details>
@@ -138,61 +119,55 @@ We use <a href="https://thirdweb.com/dashboard/infrastructure/storage">thirdweb 
 
 <details>
 <summary>Did thirdweb fail to publish?</summary>
-If thirdweb takes too long to install or fails to publish, use the following command:
-
-```shell
-curl -F file=@./dist/index.js https://agents.phala.network/ipfs 
-```
+If ThirdWeb fails to publish, please use any IPFS pinning service to publish your Agent Contract.
 </details>
 
 ### Access the Published AI Agent
 
-Once published, your AI Agent is available at the URL: `https://agents.phala.network/ipfs/<your-cid>`. You can get it from the "Publish to IPFS" step.
+Once published, your AI Agent is available at the URL: `https://wapo-testnet.phala.network/ipfs/<your-cid>`. You can get it from the "Publish to IPFS" step.
 
 You can test it with `curl`.
 
 ```bash
-curl https://agents.phala.network/ipfs/<your-cid>
+curl https://wapo-testnet.phala.network/ipfs/<your-cid>
 ```
 
 ### Add Secrets
 
 By default, all the compiled JS code is visible for anyone to view if they look at IPFS CID. This makes private info like API keys, signer keys, etc. vulnerable to be stolen. To protect devs from leaking keys, we have added a field called `secret` in the `Request` object. It allows you to store secrets in a vault for your AI Agent to access.
 
-<details>
-<summary><b>How to Add Secrets</b></summary>
-
-The steps to add a `secret` is simple. We will add the Anthropic API Key in this example by creating a secret JSON object with the `anthropicApiKey`:
-
+To add your secrets, 
+1) Edit the [setSecrets.ts](./scripts/setSecrets.ts) file and update the `secrets` variable at the top of the file.
 ```json
 {"secretSalt": "<SECRET_SALT>"}
 ```
-
-Then in your frame code, you will be able to access the secret key via `req.secret` object:
-
-```js
-async function GET(req: Request): Promise<Response> {
-    const secretSalt = req.secret?.secretSalt
-}
+2) Update the [.env](./.env.example) file with your published agent IPFS CID
+```text
+AGENT_CID=Qmc7EDq1X8rfYGGfHyXZ6xsmcSUWQcqsDoeRMfmvFujih3
 ```
-
-> **Note**: Before continuing, make sure to publish your compiled AI Agent JS code, so you can add secrets to the CID.
-
-**Open terminal**
-Use `curl` to `POST` your secrets to `https://agents.phala.network/vaults`. Replace `IPFS_CID` with the CID to the compile JS code in IPFS, and replace `<ANTHROPIC_API_KEY>` with your Anthropic API key. Note that you can name the secret field name something other than `anthropicApiKey`, but you will need to access the key in your `index.ts` file with the syntax `req.secret?.<your-secret-field-name> as string`
-
-The command will look like this:
+3) Run command to set the secrets
 ```shell
-curl https://agents.phala.network/vaults -H 'Content-Type: application/json' -d '{"cid": "IPFS_CID", "data": {"secretSalt": "<SECRET_SALT>"}}'
-# Output:
-# {"token":"e85ae53d2ba4ca8d","key":"e781ef31210e0362","succeed":true}
+npm run set-secrets
+```
+Expected output:
+```shell
+Storing secrets...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   157    0    68  100    89    100    130 --:--:-- --:--:-- --:--:--   230
+{"token":"363b6860c818fc03","key":"b092532592cbd0cf","succeed":true}
+
+Secrets set successfully. Go to the URL below to interact with your agent:
+https://wapo-testnet.phala.network/ipfs/QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae?key=b092532592cbd0cf
 ```
 
 The API returns a `token` and a `key`. The `key` is the id of your secret. It can be used to specify which secret you are going to pass to your frame. The `token` can be used by the developer to access the raw secret. You should never leak the `token`.
 
-To verify the secret, run the following command where `key` and `token` are replaced with the values from adding your `secret` to the vault.
+<details>
+<summary>To verify the secret</summary>
+Run the following command where `key` and `token` are replaced with the values from adding your `secret` to the vault.
 ```shell
-curl https://agents.phala.network/vaults/<key>/<token>
+curl https://wapo-testnet.phala.network/vaults/<key>/<token>
 ```
 
 Expected output:
@@ -202,22 +177,21 @@ Expected output:
 
 If you are using secrets, make sure that your URL is set in the following syntax where `cid` is the IPFS CID of your compiled JS file and `key` is the `key` from adding secrets to your vault.
 ```text
-https://agents.phala.network/ipfs/<cid>?key=<key>
+https://wapo-testnet.phala.network/ipfs/<cid>?key=<key>
 ```
 
 </details>
 
 #### Example:
-- Derived ECDSA Key: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb
-- Sign 'Hello MOON!': https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb&type=sign&data=Hello%20Moon%21
-- Verify Signature: https://agents.phala.network/ipfs/QmNrprJ7GBmYcHYtPXvc9Xp6tZE2Z3CgNi1TW2scTvcpCY?key=e29161406e3e6bcb&type=verify&data=Hello%20Moon!&signature=0x372f08f2efebcff0ac8f9ae0dcc6662bf5aeb9e54cf40e86043cc71bb18fd806688f6956b8a31774ef5249d9bea878905c616c117fc27d15b1a2340d10ba90df1c
+- [Derived ECDSA Key](https://wapo-testnet.phala.network/ipfs/QmYNXZ7tGijMHvweRjcx5vGPjmMBCfqnaBS7AHQDipymqh?key=22c89875324bd834)
+- [Sign 'signedByTEE'](https://wapo-testnet.phala.network/ipfs/QmYNXZ7tGijMHvweRjcx5vGPjmMBCfqnaBS7AHQDipymqh?key=22c89875324bd834&type=sign&data=signedByTEE)
+- [Verify Signature](https://wapo-testnet.phala.network/ipfs/QmYNXZ7tGijMHvweRjcx5vGPjmMBCfqnaBS7AHQDipymqh?key=22c89875324bd834&type=verify&data=signedByTEE&signature=0xa2330010f1eb66c58819390a052709653055f5e4f4daf94ecf2b3eb0312d373c25a4429ac3926bdd2faa2837b809d429bf185a5af9f4166fb93fe151f4ac242c1b)
 
 ### Access Queries
 To help create custom logic, we have an array variable named `queries` that can be accessed in the `Request` class. To access the `queries` array variable `type` value at index `0`, the syntax will look as follows:
 ```typescript
 const type = req.queries.type[0] as string;
 ```
-
 
 ## FAQ
 
@@ -227,8 +201,7 @@ const type = req.queries.type[0] as string;
   <li>Most of the npm packages are supported: viem, onchainkit, ….</li>
   <li>Some packages with some advanced features are not supported:</li>
   <ul>
-    <li>Large code size. Compiled bundle should be less than 500kb.</li>
-    <li>Large memory usage, like image generation</li>
+    <li>Memory usage over 100MB</li>
     <li>Web Assembly</li>
     <li>Browser only features: local storage, service workers, etc</li>
   </ul>
@@ -240,13 +213,7 @@ const type = req.queries.type[0] as string;
 <ul>
   <li>The code runs inside a tailored <a href="https://bellard.org/quickjs/">QuickJS engine</a></li>
   <li>Available features: ES2023, async, fetch, setTimeout, setInterval, bigint</li>
-  <li>Resource limits</li>
-  <ul>
-    <li>Max execution time ~30s</li>
-    <li>Max memory usage: 16 mb</li>
-    <li>Max code size: 500 kb</li>
-    <li>Limited CPU burst: CPU time between async calls is limited. e.g. Too complex for-loop may hit the burst limit.</li>
-  </ul>
+  <li> <a href="https://docs.phala.network/tech-specs/ai-agent-contract#wapojs/">Tech spec doc</a></li>
 </ul>
 </details>
 
