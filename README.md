@@ -201,8 +201,7 @@ const type = req.queries.type[0] as string;
   <li>Most of the npm packages are supported: viem, onchainkit, ….</li>
   <li>Some packages with some advanced features are not supported:</li>
   <ul>
-    <li>Large code size. Compiled bundle should be less than 500kb.</li>
-    <li>Large memory usage, like image generation</li>
+    <li>Memory usage over 100MB</li>
     <li>Web Assembly</li>
     <li>Browser only features: local storage, service workers, etc</li>
   </ul>
@@ -214,13 +213,7 @@ const type = req.queries.type[0] as string;
 <ul>
   <li>The code runs inside a tailored <a href="https://bellard.org/quickjs/">QuickJS engine</a></li>
   <li>Available features: ES2023, async, fetch, setTimeout, setInterval, bigint</li>
-  <li>Resource limits</li>
-  <ul>
-    <li>Max execution time ~30s</li>
-    <li>Max memory usage: 16 mb</li>
-    <li>Max code size: 500 kb</li>
-    <li>Limited CPU burst: CPU time between async calls is limited. e.g. Too complex for-loop may hit the burst limit.</li>
-  </ul>
+  <li> <a href="https://docs.phala.network/tech-specs/ai-agent-contract#wapojs/">Tech spec doc</a></li>
 </ul>
 </details>
 
