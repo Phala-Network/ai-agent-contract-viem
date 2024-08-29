@@ -158,14 +158,20 @@ Deployment information updated in ./logs/latestDeployment.json
 > ```
 
 <details>
-<summary>New to thirdweb?</summary>
-We use <a href="https://thirdweb.com/dashboard/infrastructure/storage">thirdweb Storage</a> to host IPFS contents. If you are new to thirdweb, the command will guide you to create your account or login to your existing account from the browser. (You may need to forward port 8976 if you are accessing a remote console via SSH.)
+<summary>New to Thirdweb?</summary>
+We use <a href="https://thirdweb.com/dashboard/infrastructure/storage">thirdweb Storage</a> to host IPFS contents. If you are new to thirdweb, the command will guide you to create your account or login to your existing account from the browser.
 </details>
 
-<details>
-<summary>Did thirdweb fail to publish?</summary>
-If ThirdWeb fails to publish, please use any IPFS pinning service to publish your Agent Contract.
-</details>
+> **Did Thirdweb fail to publish?**
+> 
+> If ThirdWeb fails to publish, please signup for your own ThirdWeb account to publish your Agent Contract to IPFS. Signup or login at https://thirdweb.com/dashboard/ 
+> 
+> Whenever you log into ThirdWeb, create a new API key and replace the default API Key with yours in the [.env](./.env) file.
+>
+> ```
+> THIRDWEB_API_KEY="YOUR_THIRDWEB_API_KEY"
+> ```
+
 
 ### Access the Published AI Agent
 
