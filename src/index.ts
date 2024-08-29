@@ -1,7 +1,30 @@
 import { Request, Response, route } from './httpSupport'
 import '@phala/wapo-env'
 import { privateKeyToAccount } from 'viem/accounts'
-import { keccak256, PrivateKeyAccount, verifyMessage } from 'viem'
+import {
+    keccak256,
+    http,
+    type Address,
+    createPublicClient,
+    PrivateKeyAccount,
+    verifyMessage,
+    createWalletClient,
+    parseGwei
+} from 'viem'
+import { baseSepolia } from 'viem/chains'
+
+function bigIntReplacer(_key: string, value: any): any {
+    return typeof value === 'bigint' ? value.toString() : value;
+}
+
+const publicClient = createPublicClient({
+    chain: baseSepolia,
+    transport: http(),
+})
+const walletClient = createWalletClient({
+    chain: baseSepolia,
+    transport: http(),
+})
 
 function getECDSAAccount(salt: string): PrivateKeyAccount {
     const derivedKey = Wapo.deriveSecret(salt)
@@ -44,6 +67,29 @@ async function verifyData(account: PrivateKeyAccount, data: string, signature: a
     return result
 }
 
+async function sendTransaction(account: PrivateKeyAccount, to: Address, gweiAmount: string): Promise<any> {
+    let result = {
+        derivedPublicKey: account.address,
+        to: to,
+        gweiAmount: gweiAmount,
+        hash: '',
+        receipt: {}
+    }
+    console.log(`Sending Transaction with Account ${account.address} to ${to} for ${gweiAmount} gwei`)
+    // @ts-ignore
+    const hash = await walletClient.sendTransaction({
+        account,
+        to,
+        value: parseGwei(`${gweiAmount}`),
+    })
+    console.log(`Transaction Hash: ${hash}`)
+    const receipt = await publicClient.waitForTransactionReceipt({ hash })
+    console.log(`Transaction Status: ${receipt.status}`)
+    result.hash = hash
+    result.receipt = receipt
+    return result
+}
+
 async function GET(req: Request): Promise<Response> {
     const secrets = req.secret || {}
     const queries = req.queries
@@ -53,7 +99,11 @@ async function GET(req: Request): Promise<Response> {
     let data = (queries.data) ? queries.data[0] as string : ''
     let result = {};
     try {
-        if (getType == 'sign') {
+        if (getType == 'sendTx') {
+            result = (queries.to && queries.gweiAmount) ?
+              await sendTransaction(account, queries.to[0] as Address, queries.gweiAmount[0]) :
+              { message: 'Missing query [to] or [gweiAmount] in URL'}
+        } else if (getType == 'sign') {
             result = (data) ? await signData(account, data) : { message: 'Missing query [data] in URL'}
         } else if (getType == 'verify') {
             if (data && queries.signature) {
@@ -69,7 +119,7 @@ async function GET(req: Request): Promise<Response> {
         result = { message: error }
     }
 
-    return new Response(JSON.stringify(result));
+    return new Response(JSON.stringify(result, bigIntReplacer));
 }
 
 async function POST(req: Request): Promise<Response> {

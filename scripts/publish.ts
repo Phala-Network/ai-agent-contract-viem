@@ -39,7 +39,7 @@ try {
       if (match) {
         const ipfsCid = match[1];
         console.log(`\nAgent Contract deployed at: ${gatewayUrl}/ipfs/${ipfsCid}`);
-        console.log(`\nIf your agent requires secrets, ensure to do the following:\n1) Edit the setSecrets.ts file to add your secrets\n2) Set the variable AGENT_CID=${ipfsCid} in the .env file\n3) Run command: npm run set-secrets`);
+        console.log(`\nIf your agent requires secrets, ensure to do the following:\n1) Edit the ./secrets/default.json file or create a new JSON file in the ./secrets folder and add your secrets to it.\n2) Run command: 'npm run set-secrets' or 'npm run set-secrets [path-to-json-file]'`);
 
         // Update the deployment log
         updateDeploymentLog(ipfsCid);

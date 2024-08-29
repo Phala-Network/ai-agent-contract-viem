@@ -1,3 +1,4 @@
+/* DO NOT MODIFY THIS FILE */
 import main from "../src";
 import * as blake from 'blakejs';
 import * as CryptoJS from 'crypto-js';
