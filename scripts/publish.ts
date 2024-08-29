@@ -1,9 +1,19 @@
-// Call Thirdweb upload command to deploy compiled frame
+// Call Thirdweb upload command to deploy compiled agent
 import { spawn } from 'child_process'
-import { writeFileSync } from 'fs';
+import { writeFileSync, existsSync, mkdirSync } from 'fs';
 import 'dotenv/config'
 
+function ensureLogsFolderExists() {
+  const logsFolder = './logs';
+  if (!existsSync(logsFolder)) {
+    mkdirSync(logsFolder);
+    console.log('Logs folder created.');
+  }
+}
+
 function updateDeploymentLog(cid: string) {
+  ensureLogsFolderExists();
+
   const gatewayUrl = 'https://wapo-testnet.phala.network';
   const deploymentInfo = {
     date: new Date().toISOString(),
