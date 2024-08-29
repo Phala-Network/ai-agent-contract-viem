@@ -44,14 +44,9 @@ npm install
 ```
 
 ### Testing Locally
-Create `.env` file
+Create `.env` file with the default ThirdWeb API key for publishing your Agent Contract to IPFS
 ```shell
 cp .env.example .env
-```
-
-In `.env` file replace `SECRET_SALT` with your own secret salt
-```text
-SECRET_SALT="SECRET_SALT"
 ```
 
 Build your Agent
