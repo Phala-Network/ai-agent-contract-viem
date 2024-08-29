@@ -1,6 +1,19 @@
 // Call Thirdweb upload command to deploy compiled frame
 import { spawn } from 'child_process'
+import { writeFileSync } from 'fs';
 import 'dotenv/config'
+
+function updateDeploymentLog(cid: string) {
+  const gatewayUrl = 'https://wapo-testnet.phala.network';
+  const deploymentInfo = {
+    date: new Date().toISOString(),
+    cid: cid,
+    url: `${gatewayUrl}/ipfs/${cid}`
+  };
+
+  writeFileSync('./logs/latestDeployment.json', JSON.stringify(deploymentInfo, null, 2), 'utf-8');
+  console.log('Deployment information updated in ./logs/latestDeployment.json');
+}
 
 try {
   const gatewayUrl = 'https://wapo-testnet.phala.network'
@@ -27,6 +40,9 @@ try {
         const ipfsCid = match[1];
         console.log(`\nAgent Contract deployed at: ${gatewayUrl}/ipfs/${ipfsCid}`);
         console.log(`\nIf your agent requires secrets, ensure to do the following:\n1) Edit the setSecrets.ts file to add your secrets\n2) Set the variable AGENT_CID=${ipfsCid} in the .env file\n3) Run command: npm run set-secrets`);
+
+        // Update the deployment log
+        updateDeploymentLog(ipfsCid);
       } else {
         console.log('IPFS CID not found');
       }
