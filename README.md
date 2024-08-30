@@ -245,7 +245,7 @@ https://wapo-testnet.phala.network/ipfs/<cid>?key=<key>
 #### Example:
 - [Derived ECDSA Key](https://wapo-testnet.phala.network/ipfs/QmVJ3xknfRevUkc68iZc4RdPSLL2gLD8WagwMQCdGMyC4g?key=6978ea391960e272)
 - [Sign 'signedByTEE'](https://wapo-testnet.phala.network/ipfs/QmVJ3xknfRevUkc68iZc4RdPSLL2gLD8WagwMQCdGMyC4g?key=6978ea391960e272&type=sign&data=signedByTEE)
-- [Verify Signature](https://wapo-testnet.phala.network/ipfs/QmVJ3xknfRevUkc68iZc4RdPSLL2gLD8WagwMQCdGMyC4g?key=6978ea391960e272&type=verify&data=signedByTEE&signature=0xa2330010f1eb66c58819390a052709653055f5e4f4daf94ecf2b3eb0312d373c25a4429ac3926bdd2faa2837b809d429bf185a5af9f4166fb93fe151f4ac242c1b)
+- [Verify Signature](https://wapo-testnet.phala.network/ipfs/QmVJ3xknfRevUkc68iZc4RdPSLL2gLD8WagwMQCdGMyC4g?key=6978ea391960e272&type=verify&data=signedByTEE&signature=0x964362374db7c0ed464d41b6336a78177b64c5c2faa33bfe5c7ac8f40bf7429631c9c342cf4c43e9e4728344478eebf3a7782b2ea0406b050f8c8efab955e7f41b)
 - [Send TX on Base Sepolia](https://wapo-testnet.phala.network/ipfs/QmVJ3xknfRevUkc68iZc4RdPSLL2gLD8WagwMQCdGMyC4g?key=6978ea391960e272&type=sendTx&to=0xC5227Cb20493b97bb02fADb20360fe28F52E2eff&gweiAmount=420)
 
 ### Access Queries
