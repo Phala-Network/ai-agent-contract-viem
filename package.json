@@ -24,7 +24,7 @@
     "wyhash": "^1.0.0"
   },
   "dependencies": {
-    "@phala/wapo-env": "^0.9.1",
+    "@phala/wapo-env": "^0.9.2",
     "viem": "^2.20.0"
   }
 }
