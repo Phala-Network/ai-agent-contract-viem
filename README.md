@@ -1,18 +1,18 @@
 <div align="center">
-  <a href="https://github.com/Phala-Network/ai-agent-contract-tools">
-    <h1>AI Agent Contract Template Tools</h1>
+  <a href="https://github.com/Phala-Network/ai-agent-contract-viem">
+    <h1>AI Agent Contract Template + Viem SDK</h1>
     <img height="320" src="./public/AI-Agent-Contract.jpg" />
     <br />
   </a>
   <p align="center">
     Host your AI Agent Contract on Phala's decentralized serverless cloud.
     <br />
-    <a href="https://github.com/Phala-Network/ai-agent-contract-tools"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Phala-Network/ai-agent-contract-viem"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://wapo-testnet.phala.network/ipfs/QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae?key=b092532592cbd0cf&type=verify&data=signedByTEE&signature=0x27a9cd3e1aa3b238c8bdbc57d831f503b9af11ba2cc4875780c21ea8a14b471c098d11791709f6243001908bfe217644c6b3882a16903048e9e01e946b318c0d1b">View Demo</a>
     ·
-    <a href="https://github.com/Phala-Network/ai-agent-contract-tools/issues">Report Bug</a>
+    <a href="https://github.com/Phala-Network/ai-agent-contract-viem/issues">Report Bug</a>
     ·
     <a href="https://discord.gg/phala-network">Discord</a>
   </p>
@@ -27,7 +27,7 @@
   <img height="240" src="https://www.jlwranglerforums.com/forum/attachments/zoolander-gif.325299/">
 </div>
 
-The AI Agent Contract Tools template is a **MINIMAL** template to build an AI Agent that can be hosted on Phala Network's decentralized hosting protocol. Unlike Vercel or other FaaS, it allows you to publish your AI Agent compiled code to IPFS and hosts it on a fully decentralized FaaS cloud with the following benefits:
+The AI Agent Contract Viem SDK template is a **MINIMAL** template to build an AI Agent that can be hosted on Phala Network's decentralized hosting protocol. Unlike Vercel or other FaaS, it allows you to publish your AI Agent compiled code to IPFS and hosts it on a fully decentralized FaaS cloud with the following benefits:
 
 - 💨 Ship Fast: Build and ship with familiar toolchain in minutes
 - ⛑️ Secure: Execution guarded by rock solid TEE / Intel SGX
