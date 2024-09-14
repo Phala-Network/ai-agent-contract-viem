@@ -92,12 +92,10 @@ async function sendTransaction(account: PrivateKeyAccount, to: Address, gweiAmou
 
 app.get('/', async (c) => {
     let vault: Record<string, string> = {}
-    console.log(c.req)
     let queries = c.req.queries() || {}
     let result = {};
     try {
         vault = JSON.parse(process.env.secret || '')
-        console.log(vault)
     } catch (e) {
         console.error(e)
         return c.json({ error: "Failed to parse secrets" })
