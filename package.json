@@ -1,5 +1,5 @@
 {
-  "name": "ai-agent-tools-template",
+  "name": "ai-agent-viem-template",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -40,7 +40,7 @@
     "@hono/zod-validator": "^0.2.2",
     "@phala/wapo-env": "^0.9.4",
     "superjson": "^2.2.1",
-    "hono": "^4.5.4",
+    "hono": "4.5.6",
     "viem": "^2.19.9"
   }
 }
