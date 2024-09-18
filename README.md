@@ -208,6 +208,19 @@ https://wapo-testnet.phala.network/ipfs/<cid>?key=<key>
 
 </details>
 
+#### Accessing Secrets in Your Code
+To access your secrets you will have to get them from secret `vault` via `process.env.secret`. Here is an example of accessing the secret key value of `secretSalt`.
+```typescript
+let vault: Record<string, string> = {}
+try {
+  vault = JSON.parse(process.env.secret || '')
+} catch (e) {
+  console.error(e)
+  return c.json({ error: "Failed to parse secrets" })
+}
+const secretSalt = (vault.secretSalt) ? vault.secretSalt as string : 'SALTY_BAE'
+```
+
 #### Example:
 - [Derived ECDSA Key](https://wapo-testnet.phala.network/ipfs/QmVJ3xknfRevUkc68iZc4RdPSLL2gLD8WagwMQCdGMyC4g?key=6978ea391960e272)
 - [Sign 'signedByTEE'](https://wapo-testnet.phala.network/ipfs/QmVJ3xknfRevUkc68iZc4RdPSLL2gLD8WagwMQCdGMyC4g?key=6978ea391960e272&type=sign&data=signedByTEE)
