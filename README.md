@@ -277,6 +277,11 @@ For more information check the [MDN docs](https://developer.mozilla.org/en-US/do
 ### Getting Rugged By The WiFi?! 
 Run a local testnet with [`docker` support](https://docs.docker.com/desktop/). All you need to do to get a local testnet started is run:
 
+> **WARNING**
+> 
+> Running the local testnet may return an error if port `8000` is already in use.
+
+ 
 ```shell
 npm run dev
 ```
