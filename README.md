@@ -71,17 +71,18 @@ Now you are ready to publish your agent, add secrets, and interact with your age
 - Set secrets: 'npm run set-secrets'
 - Go to the url produced by setting the secrets (e.g. https://wapo-testnet.phala.network/ipfs/QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae?key=b092532592cbd0cf)
 
- ✓ tests/index.test.ts (5) 4997ms
-   ✓ Derive Account
-   ✓ Sign Message Data
-   ✓ Verify Signature
-   ✓ Send TX on Base Sepolia 4952ms
-   ✓ POST /
+ ✓ tests/index.test.ts (5) 7035ms
+   ✓ Test Viem SDK AI Agent Contract (5) 7035ms
+     ✓ Derive Account
+     ✓ Sign Message Data
+     ✓ Verify Signature
+     ✓ Send TX on Base Sepolia 6991ms
+     ✓ POST /
 
  Test Files  1 passed (1)
       Tests  5 passed (5)
-   Start at  13:26:06
-   Duration  5.37s (transform 35ms, setup 7ms, collect 200ms, tests 5.00s, environment 0ms, prepare 40ms)
+   Start at  16:40:10
+   Duration  7.39s (transform 34ms, setup 6ms, collect 181ms, tests 7.04s, environment 0ms, prepare 42ms)
 ```
 
 ### Publish Your AI Agent

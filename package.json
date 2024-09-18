@@ -8,7 +8,7 @@
     "start": "docker run --rm --name wapo -p 8000:80 -v $(pwd)/dist:/home/wapo phalanetwork/wapo-devserver:latest",
     "watch": "npm-watch",
     "dev": "concurrently \"npm:watch\" \"npm:start\"",
-    "test": "vitest",
+    "test": "vitest --testTimeout=60000",
     "ci": "npm run build && vitest --coverage --run",
     "publish-agent": "npm run build && tsx scripts/publish.ts",
     "set-secrets": "tsx scripts/setSecrets.ts"
