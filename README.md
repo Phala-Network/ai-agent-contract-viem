@@ -33,11 +33,12 @@ The AI Agent Contract Tools template is a **MINIMAL** template to build an AI Ag
 - ⛑️ Secure: Execution guarded by rock solid TEE / Intel SGX
 - 🔒 Private: Host API keys and user privacy at ease
 - 💎 Unstoppable: Powered by IPFS and Phala's 35k+ decentralized TEE workers
-- :fire: [**hono/tiny** Support](https://hono.dev/docs/api/presets#hono-tiny): Currently support a limited implementation of Hono.
+- :fire: [**hono/tiny** Support](https://hono.dev/docs/api/presets#hono-tiny): a small, simple, and ultrafast web framework built on Web Standards.
+- 🧪: [Vite Test Framework](https://vitest.dev/guide/): Vite Testing Framework support, but your free to change the test framework to your desire.
 
-> **NOTICE** 
-> 
-> The current implementation of `hono` is limited. For example, routing paths are not supported, yet. Try to only use the `/` path & utilize [URL queries](https://hono.dev/docs/api/request#query) or pass data via the [body](https://hono.dev/docs/api/request#json) in a post request  
+> **NOTICE**
+>
+> We recommend using @hono/tiny to avoid a large bundle size and the 20MB final artifact limitation.
 
 [//]: # (<img width="320" src="https://media1.tenor.com/m/NBtFH5F9QTgAAAAd/what-is-my-purpose-butter.gif" />)
 
@@ -233,7 +234,7 @@ Check the [`Hono` docs](https://hono.dev/docs) for information on accessing URL 
 
 > **NOTICE**
 >
-> The current implementation of `hono` is limited. For example, routing paths are not supported, yet. Try to only use the `/` path & utilize [URL queries](https://hono.dev/docs/api/request#query) or pass data via the [body](https://hono.dev/docs/api/request#json) in a post request
+> We recommend using @hono/tiny to avoid a large bundle size and the 20MB final artifact limitation.
 
 ```typescript
 // Access query value for a URL query named `type`
