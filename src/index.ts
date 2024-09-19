@@ -1,5 +1,6 @@
-import { Request, Response, route } from './httpSupport'
 import '@phala/wapo-env'
+import { Hono } from 'hono/tiny'
+import { handle } from '@phala/wapo-env/guest'
 import { privateKeyToAccount } from 'viem/accounts'
 import {
     keccak256,
@@ -12,10 +13,9 @@ import {
     parseGwei
 } from 'viem'
 import { baseSepolia } from 'viem/chains'
+import superjson from 'superjson'
 
-function bigIntReplacer(_key: string, value: any): any {
-    return typeof value === 'bigint' ? value.toString() : value;
-}
+export const app = new Hono()
 
 const publicClient = createPublicClient({
     chain: baseSepolia,
@@ -90,14 +90,21 @@ async function sendTransaction(account: PrivateKeyAccount, to: Address, gweiAmou
     return result
 }
 
-async function GET(req: Request): Promise<Response> {
-    const secrets = req.secret || {}
-    const queries = req.queries
-    const secretSalt = (secrets.secretSalt) ? secrets.secretSalt as string : 'SALTY_BAE'
+app.get('/', async (c) => {
+    let vault: Record<string, string> = {}
+    let queries = c.req.queries() || {}
+    let result = {};
+    try {
+        vault = JSON.parse(process.env.secret || '')
+    } catch (e) {
+        console.error(e)
+        return c.json({ error: "Failed to parse secrets" })
+    }
+    const secretSalt = (vault.secretSalt) ? vault.secretSalt as string : 'SALTY_BAE'
     const getType = (queries.type) ? queries.type[0] as string : ''
     const account = getECDSAAccount(secretSalt)
-    let data = (queries.data) ? queries.data[0] as string : ''
-    let result = {};
+    const data = (queries.data) ? queries.data[0] as string : ''
+    console.log(`Type: ${getType}, Data: ${data}`)
     try {
         if (getType == 'sendTx') {
             result = (queries.to && queries.gweiAmount) ?
@@ -118,14 +125,14 @@ async function GET(req: Request): Promise<Response> {
         console.error('Error:', error)
         result = { message: error }
     }
+    const { json, meta } = superjson.serialize(result)
+    return c.json(json)
+})
 
-    return new Response(JSON.stringify(result, bigIntReplacer));
-}
+app.post('/', async (c) => {
+    const data = await c.req.json()
+    console.log('user payload in JSON:', data)
+    return c.json(data)
+});
 
-async function POST(req: Request): Promise<Response> {
-    return new Response(JSON.stringify({message: 'Not Implemented'}));
-}
-
-export default async function main(request: string) {
-    return await route({ GET, POST }, request)
-}
+export default handle(app)

@@ -1,7 +1,9 @@
 // Call Thirdweb upload command to deploy compiled agent
 import { spawn } from 'child_process'
 import { writeFileSync, existsSync, mkdirSync } from 'fs';
-import 'dotenv/config'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 function ensureLogsFolderExists() {
   const logsFolder = './logs';
