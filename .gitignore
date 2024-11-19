@@ -25,3 +25,6 @@ tmp
 logs
 secrets
 latestDeployment.json
+
+# remove mac related file
+.DS_Store

@@ -1,27 +1,27 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entry: ['src/index.ts'],
+  entry: ["src/index.tsx"],
   splitting: false,
   sourcemap: true,
   clean: true,
-  noExternal: ['*'],
+  noExternal: ["*"],
   //
   // for wapo
   //
-  format: ['iife'],
-  globalName: 'module.exports',
+  format: ["iife"],
+  globalName: "module.exports",
   outExtension({ format }) {
     return {
       js: `.js`,
-    }
+    };
   },
   esbuildOptions(options) {
     options.banner = {
-      js: 'var module = module || { exports: {} };',
-    }
+      js: "var module = module || { exports: {} };",
+    };
     options.footer = {
-      js: 'module.exports = module.exports?.default;',
-    }
+      js: "module.exports = module.exports?.default;",
+    };
   },
-})
+});

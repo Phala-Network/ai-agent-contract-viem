@@ -8,6 +8,8 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx/dom"
   },
   "include": ["src/**/*"],
   "exclude": [
